@@ -1,0 +1,44 @@
+<view class="container">
+  <add-or-edit-place-modal
+    a:if="{{ showModal }}"
+    onHandleClose="onCloseModal"
+    onCreateOrEditPlace="onCreateOrEditPlace"
+    place={{selectedPlace}}
+  />
+  <view class="list-container">
+    <view
+      a:for="{{ placesList }}"
+      a:for-index="index"
+      a:for-item="place"
+      class="list-container"
+      a:key="index"
+    >
+      <card-component
+        onHandleClick="onHandleClickCard"
+        title="{{place.name}}"
+        description="{{place.description}}"
+        image="{{place.image}}"
+        actions
+      >
+        <view class="actions" slot="actions">
+          <button
+            class={{place.visited ? "visited-button":"unvisited-button"}}
+            onTap="onToggleVisited"
+            data-id={{place.id}}
+          >
+            {{place.visited ? "Visitado":"Marcar como visitado"}}
+          </button>
+          <button class="edit-button" onTap="onSelectPlace" data-place={{place}}>
+            Editar
+          </button>
+          <button class="delete-button" onTap="onDeletePlace" data-id={{place.id}}>
+            Eliminar
+          </button>
+        </view>
+      </card-component>
+    </view>
+  </view>
+  <button class="floating-button" onTap="onOpenAddNewPlace">
+    <ant-icon type="AddOutline" />
+  </button>
+</view>

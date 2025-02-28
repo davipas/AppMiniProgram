@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="list-container">
+    <view
+      a:for="{{ listMiniApps }}"
+      a:for-index="index"
+      a:for-item="miniApp"
+      class="list-container"
+      a:key="index"
+    >
+      <card-component
+        onHandleClick="onHandleClickCard"
+        title="{{miniApp.name}}"
+        href="{{miniApp.href}}"
+      />
+    </view>
+  </view>
+</view>
+
+
+
+<!--<modal-component
+  a:if="{{ showModal }}"
+  selectedName="{{selectedName}}"
+  selectedPhone="{{selectedPhone}}"
+  onHandleClose="onHandleClose"
+/><view class="list"><view
+    a:for="{{ list }}"
+    a:for-index="index"
+    a:for-item="item"
+    class="list-item"
+    a:key="index"
+    onTap="onHandleClick"
+    data-value="{{item}}"
+  ><text>
+      Nombre: {{item.name}}</text><text>
+      Telefono: {{item.phone}}</text></view></view> -->

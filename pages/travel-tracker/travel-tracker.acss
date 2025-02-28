@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: gainsboro;
+  position: relative;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  padding-block: 15px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.visited-button {
+  border-radius: 10px;
+  background-color: green;
+  border: none;
+  color: white;
+  width: 100%;
+}
+
+.unvisited-button {
+  border-radius: 10px;
+  background-color: goldenrod;
+  border: none;
+  color: white;
+  width: 100%;
+}
+
+.delete-button {
+  border-radius: 10px;
+  background-color: rgb(241, 54, 54);
+  border: none;
+  color: white;
+}
+
+.edit-button {
+  border-radius: 10px;
+  background-color: royalblue;
+  border: none;
+  color: white;
+  width: 100%;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}

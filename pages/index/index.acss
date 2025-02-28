@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  /* position: relative; */
+  flex-direction: column;
+  width: 100%;
+  background-color: gainsboro;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  padding-block: 15px;
+}

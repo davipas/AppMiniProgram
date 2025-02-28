@@ -1,0 +1,21 @@
+<view class="card">
+  <view class="card-content">
+    <view a:if="{{ title }}" class="card-title">
+      <text>{{title}}</text>
+      <ant-icon
+        a:if="{{ href }}"
+        type="RightOutline"
+        style="font-weight:bold"
+        onTap="handleClick"
+        data-href={{href}}
+      />
+    </view>
+    <view a:if="{{ description  }}" class="card-description">
+      <text>{{description}}</text>
+      <image class="card-image" mode="aspectFit" src={{image || "/assets/imgs/default.jpg"}} />
+    </view>
+    <view a:if="{{ actions }}" class="card-actions">
+      <slot name="actions" />
+    </view>
+  </view>
+</view>

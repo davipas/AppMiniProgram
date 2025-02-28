@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "card-component": "/components/card/card",
+    "ant-icon": "antd-mini/es/Icon/index",
+    "add-or-edit-place-modal": "/components/travel-tracker/add-or-edit-place-modal/add-or-edit-place-modal"
+  },
+  "styleIsolation": "apply-shared"
+}

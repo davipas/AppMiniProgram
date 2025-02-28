@@ -1,0 +1,10 @@
+{
+  "pages": [
+    "pages/travel-tracker/travel-tracker",
+    "pages/index/index",
+    "pages/calculator/calculator"
+  ],
+  "window": {
+    "defaultTitle": "My App"
+  }
+}

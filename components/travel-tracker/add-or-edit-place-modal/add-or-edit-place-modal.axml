@@ -1,0 +1,47 @@
+<view class="container">
+  <form onSubmit="formSubmit" class="form">
+    <view class="input-form">
+      <text>Nombre del lugar</text>
+      <input
+        value={{place.name || ""}}
+        placeholder="Introduce el lugar"
+        name="name"
+        type="text"
+      />
+      <text a:if="{{ errorName }}" class="errorMessage">{{errorName}}</text>
+    </view>
+    <view class="input-form">
+      <text>Descripción</text>
+      <input
+        value={{place.description || ""}}
+        placeholder="Introduce una descripción"
+        name="description"
+        type="text"
+      />
+      <text a:if="{{ errorDescription }}" class="errorMessage">
+        {{errorDescription}}
+      </text>
+    </view>
+    <view class="checkbox">
+      <checkbox-group name="checkbox">
+        <label>
+          <checkbox value="visited" checked={{place.visited}} />Visitado</label>
+      </checkbox-group>
+    </view>
+    <image
+      a:if="{{ filePath || place.image }}"
+      class="form-image"
+      mode="aspectFit"
+      src={{filePath ? filePath: place.image ? place.image: ""}}
+    />
+    <button class="add-image-button" onTap="selectImage">
+      {{place.image ?"Editar Imagen":"Agregar Imagen"}}
+    </button>
+    <view class="button-area">
+      <button class="form-button" form-type="submit">
+        {{place ? "Editar":"Agregar"}}
+      </button>
+      <button class="close-modal-button" onTap="onHandleClose">Cerrar</button>
+    </view>
+  </form>
+</view>
