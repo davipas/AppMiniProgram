@@ -1,3 +1,16 @@
-<view>
-  Calculator Page
+<view class="container">
+  <view class="calculator-input">{{input.length > 0 ? input.join("") :0}}</view>
+  <view class="calculator-buttons">
+    <button
+      a:for="{{ buttons }}"
+      a:for-index="index"
+      a:for-item="btn"
+      a:key="index"
+      class="button"
+      onTap="onHandleClick"
+      data-value="{{btn}}"
+    >
+      {{btn}}
+    </button>
+  </view>
 </view>

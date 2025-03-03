@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: gainsboro;
+  background: linear-gradient(to bottom, #FFFFFF, #DFE4F1);
   position: relative;
 }
 
@@ -11,6 +11,27 @@
   flex-direction: column;
   padding-block: 15px;
 }
+
+.search-place-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid #DCE1EF;
+  margin-inline: 35px;
+  border-radius: 10px;
+}
+
+.empty-list {
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  margin: 30px auto;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .actions {
   display: flex;

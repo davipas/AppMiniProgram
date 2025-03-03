@@ -1,4 +1,9 @@
 <view class="container">
+  <image-modal
+    a:if="{{ showImageModal }}"
+    onCloseImageModal="onCloseImageModal"
+    clickedImage="{{clickedImage}}"
+  />
   <add-or-edit-place-modal
     a:if="{{ showModal }}"
     onHandleClose="onCloseModal"
@@ -6,6 +11,12 @@
     place={{selectedPlace}}
   />
   <view class="list-container">
+    <view class="search-place-container">
+      <input class="search-input" placeholder="Busca el lugar" onInput="onInput" />
+    </view>
+    <view a:if="{{ placesList.length === 0 }}" class="empty-list">
+      <text>No se encontraron lugares agrega algunos.</text>
+    </view>
     <view
       a:for="{{ placesList }}"
       a:for-index="index"
@@ -14,6 +25,7 @@
       a:key="index"
     >
       <card-component
+        onShowImageModal="onShowImageModal"
         onHandleClick="onHandleClickCard"
         title="{{place.name}}"
         description="{{place.description}}"
@@ -26,7 +38,7 @@
             onTap="onToggleVisited"
             data-id={{place.id}}
           >
-            {{place.visited ? "Visitado":"Marcar como visitado"}}
+            {{place.visited ? "Visitado":"Pendiente"}}
           </button>
           <button class="edit-button" onTap="onSelectPlace" data-place={{place}}>
             Editar

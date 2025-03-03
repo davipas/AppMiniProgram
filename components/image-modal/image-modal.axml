@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="image-container">
+    <image class="image" mode="scaleToFill" src={{clickedImage}} />
+    <ant-icon
+      onTap="onCloseImageModal"
+      style="position: absolute; top: 20px; right: 20px; font-size:30px; color:rgb(241, 54, 54); font-weight:bold"
+      type="CloseOutline"
+    />
+  </view>
+</view>

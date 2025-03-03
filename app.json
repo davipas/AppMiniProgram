@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/travel-tracker/travel-tracker",
     "pages/index/index",
-    "pages/calculator/calculator"
+    "pages/calculator/calculator",
+    "pages/travel-tracker/travel-tracker"
   ],
   "window": {
     "defaultTitle": "My App"

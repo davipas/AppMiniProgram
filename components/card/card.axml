@@ -12,7 +12,13 @@
     </view>
     <view a:if="{{ description  }}" class="card-description">
       <text>{{description}}</text>
-      <image class="card-image" mode="aspectFit" src={{image || "/assets/imgs/default.jpg"}} />
+      <image
+        onTap="showImageModal"
+        class="card-image"
+        mode="aspectFit"
+        src={{image || "/assets/imgs/default.jpg"}}
+        data-image={{image || "/assets/imgs/default.jpg"}}
+      />
     </view>
     <view a:if="{{ actions }}" class="card-actions">
       <slot name="actions" />

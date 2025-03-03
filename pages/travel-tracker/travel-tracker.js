@@ -1,8 +1,51 @@
 Page({
   data: {
+    clickedImage: "",
+    showImageModal: false,
     showModal: false,
     placesList: [],
-    selectedPlace: {}
+    selectedPlace: {},
+  },
+  onLoad() {
+    this.loadPlaces();
+  },
+  loadPlaces() {
+    const placesStorage = my.getStorageSync({
+      key: 'places'
+    }).data;
+    let placesArray = [];
+    if (placesStorage) {
+      try {
+        placesArray = JSON.parse(placesStorage);
+      } catch (error) {
+        console.error("Error al parsear datos:", error);
+      }
+    }
+    this.setData({
+      placesList: placesArray
+    });
+  },
+  onInput(e) {
+    const query = e.detail.value.trim();
+    if (!query) {
+      this.loadPlaces();
+    }
+    const filteredPlaces = this.data.placesList.filter(place =>
+      place.name.toLowerCase().includes(query.toLowerCase())
+    );
+    this.setData({
+      placesList: filteredPlaces
+    });
+  },
+
+  savePlaces(placesArray) {
+    my.setStorageSync({
+      key: 'places',
+      data: JSON.stringify(placesArray)
+    });
+    this.setData({
+      placesList: placesArray
+    });
   },
   onOpenAddNewPlace() {
     this.setData({
@@ -15,8 +58,16 @@ Page({
       showModal: false
     })
   },
-  onLoad() {
-    this.loadPlaces();
+  onShowImageModal(clickedImage) {
+    this.setData({
+      showImageModal: true,
+      clickedImage: clickedImage
+    })
+  },
+  onCloseImageModal() {
+    this.setData({
+      showImageModal: false
+    })
   },
   onSelectPlace(e) {
     this.setData({
@@ -57,6 +108,7 @@ Page({
     const existingPlace = placesArray.find(place => place.id === createdOrEditedPlace.id)
     if (!existingPlace) {
       placesArray.push(createdOrEditedPlace)
+      this.savePlaces(placesArray.reverse());
     } else {
       placesArray = placesArray.map(place => {
         if (place.id === createdOrEditedPlace.id) {
@@ -66,32 +118,7 @@ Page({
         }
         return place;
       });
+      this.savePlaces(placesArray);
     }
-    this.savePlaces(placesArray);
-  },
-  savePlaces(placesArray) {
-    my.setStorageSync({
-      key: 'places',
-      data: JSON.stringify(placesArray)
-    });
-    this.setData({
-      placesList: placesArray.reverse()
-    });
-  },
-  loadPlaces() {
-    const placesStorage = my.getStorageSync({
-      key: 'places'
-    }).data;
-    let placesArray = [];
-    if (placesStorage) {
-      try {
-        placesArray = JSON.parse(placesStorage).reverse();
-      } catch (error) {
-        console.error("Error al parsear datos:", error);
-      }
-    }
-    this.setData({
-      placesList: placesArray
-    });
   },
 });

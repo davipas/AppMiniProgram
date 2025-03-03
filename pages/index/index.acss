@@ -1,9 +1,9 @@
 .container {
   display: flex;
-  /* position: relative; */
   flex-direction: column;
   width: 100%;
-  background-color: gainsboro;
+  background: linear-gradient(to bottom, #FFFFFF, #DFE4F1);
+  ;
 }
 
 .list-container {

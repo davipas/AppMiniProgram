@@ -5,9 +5,10 @@ Page({
         href: "/pages/travel-tracker/travel-tracker"
       },
       {
-        name: 'Calculadora',
+        name: "Calculadora",
         href: "/pages/calculator/calculator"
       }
+
     ]
   },
   onHandleClickCard(href) {
